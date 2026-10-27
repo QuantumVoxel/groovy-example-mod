@@ -2,13 +2,9 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenLocal()
-        maven { url = "https://gitlab.com/api/v4/groups/9962021/-/packages/maven" }
-    }
-
-    resolutionStrategy {
-        eachPlugin {
-        }
+        maven { url "https://maven.ultreon.dev/releases" }
+        maven { url "https://maven.ultreon.dev/snapshots" }
     }
 }
 
-rootProject.name = 'quantum-example-mod'
+rootProject.name = 'groovy-example-mod'

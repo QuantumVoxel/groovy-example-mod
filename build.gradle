@@ -1,39 +1,20 @@
 plugins {
+    id 'java'
+    id 'java-library'
     id 'groovy'
-    id 'dev.ultreon.photon' version "0.1.0"
+    id 'net.quantumvoxel.photon' version '0.1.0-SNAPSHOT'
 }
 
 photon {
-    production = true
-    modProject = project
-
-    // Set your properties in the gradle.properties file
-    projectName = property("mod_displayName")
-    projectVersion = property("mod_version")
-    projectGroup = property("mod_group")
-    projectId = property("mod_name")
-    javaVersion = 21
+    gameVersion = "0.1.0-alpha.2026.10.27"
+    splitClientSources = true
+    generateSources = true
+    generateJavadoc = true
 }
 
-group = photon.projectGroup
-version = photon.projectVersion
-
-base {
-    archivesName = photon.projectId
-}
-
-repositories {
-    mavenCentral()
-}
+group = "org.example"
+version = "1.0-SNAPSHOT"
 
 dependencies {
-    quantum photon.client(property("versions_quantum").toString())
-
-    implementation 'org.apache.groovy:groovy:4.0.14'
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
+    include implementation('org.apache.groovy:groovy:4.0.33')
 }
